@@ -1,0 +1,15 @@
+name: boilerplate
+
+packages:
+  - shared/**
+  - apps/**
+
+scripts:
+  analyze:
+    exec: dart analyze .
+
+ide:
+  intellij:
+    enabled: false
+
+sdkPath: .fvm/flutter_sdk
