@@ -1,0 +1,6 @@
+{
+    "@@locale": "en",
+    "networkFailed": "Something went wrong, please try again!",
+	"loadFail": "An error has occurred",
+	"loadMore": "loading..."
+}

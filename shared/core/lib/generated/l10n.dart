@@ -12,66 +12,76 @@ import 'intl/messages_all.dart';
 // ignore_for_file: join_return_with_assignment, prefer_final_in_for_each
 // ignore_for_file: avoid_redundant_argument_values, avoid_escaping_inner_quotes
 
-class S {
-  S();
+class SCore {
+  SCore();
 
-  static S? _current;
+  static SCore? _current;
 
-  static S get current {
+  static SCore get current {
     assert(_current != null,
-        'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.');
+        'No instance of SCore was loaded. Try to initialize the SCore delegate before accessing SCore.current.');
     return _current!;
   }
 
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
-  static Future<S> load(Locale locale) {
+  static Future<SCore> load(Locale locale) {
     final name = (locale.countryCode?.isEmpty ?? false)
         ? locale.languageCode
         : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
-      final instance = S();
-      S._current = instance;
+      final instance = SCore();
+      SCore._current = instance;
 
       return instance;
     });
   }
 
-  static S of(BuildContext context) {
-    final instance = S.maybeOf(context);
+  static SCore of(BuildContext context) {
+    final instance = SCore.maybeOf(context);
     assert(instance != null,
-        'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?');
+        'No instance of SCore present in the widget tree. Did you add SCore.delegate in localizationsDelegates?');
     return instance!;
   }
 
-  static S? maybeOf(BuildContext context) {
-    return Localizations.of<S>(context, S);
+  static SCore? maybeOf(BuildContext context) {
+    return Localizations.of<SCore>(context, SCore);
   }
 
-  /// `English`
-  String get en {
+  /// `Something went wrong, please try again!`
+  String get networkFailed {
     return Intl.message(
-      'English',
-      name: 'en',
+      'Something went wrong, please try again!',
+      name: 'networkFailed',
       desc: '',
       args: [],
     );
   }
 
-  /// `Error`
-  String get error {
+  /// `An error has occurred`
+  String get loadFail {
     return Intl.message(
-      'Error',
-      name: 'error',
+      'An error has occurred',
+      name: 'loadFail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `loading...`
+  String get loadMore {
+    return Intl.message(
+      'loading...',
+      name: 'loadMore',
       desc: '',
       args: [],
     );
   }
 }
 
-class AppLocalizationDelegate extends LocalizationsDelegate<S> {
+class AppLocalizationDelegate extends LocalizationsDelegate<SCore> {
   const AppLocalizationDelegate();
 
   List<Locale> get supportedLocales {
@@ -83,7 +93,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   @override
   bool isSupported(Locale locale) => _isSupported(locale);
   @override
-  Future<S> load(Locale locale) => S.load(locale);
+  Future<SCore> load(Locale locale) => SCore.load(locale);
   @override
   bool shouldReload(AppLocalizationDelegate old) => false;
 

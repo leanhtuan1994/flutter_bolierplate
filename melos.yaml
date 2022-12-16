@@ -6,12 +6,28 @@ packages:
 
 scripts:
   analyze:
-    exec: dart analyze .
-  
-  intl:generate: 
-    exec: fvm flutter pub run intl_utils:generate
-    select-package:
-      scope: 'mobile'
+    exec: dart analyze .  
+
+  intl:generate:
+    name: app_intl
+    description: 'generate intl utils for mobile packages'
+    run: cd apps/mobile && fvm flutter pub run intl_utils:generate
+
+  pod:install:
+    name: app_intl
+    description: 'pod install'
+    run: cd apps/mobile/ios && pod install
+
+  core:intl:generate:
+    name: app_intl
+    description: 'generate intl utils for core package'
+    run: cd shared/core && fvm flutter pub run intl_utils:generate
+
+  app:get: 
+    name: app_get
+    description: 'run app pub get only'
+    run: cd apps/mobile && fvm flutter pub get
+
 
 ide:
   intellij:

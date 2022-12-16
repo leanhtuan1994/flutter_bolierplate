@@ -1,4 +1,5 @@
 { 
     "@@locale": "en",
-    "en": "English"
+    "en": "English",
+    "error": "Error"
 }
