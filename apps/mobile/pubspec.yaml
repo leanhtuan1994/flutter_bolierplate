@@ -17,6 +17,7 @@ dependencies:
     sdk: flutter
 
   core:
+    path: ../../shared/core
 
   intl: ^0.17.0
   intl_utils: ^2.8.1

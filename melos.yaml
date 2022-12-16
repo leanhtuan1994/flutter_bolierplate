@@ -7,6 +7,11 @@ packages:
 scripts:
   analyze:
     exec: dart analyze .
+  
+  intl:generate: 
+    exec: fvm flutter pub run intl_utils:generate
+    select-package:
+      scope: 'mobile'
 
 ide:
   intellij:

@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
         "intellij"
-    ]
+    ],
+    "dart.runPubGetOnPubspecChanges": "never"
 }

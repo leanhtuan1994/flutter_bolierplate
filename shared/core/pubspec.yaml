@@ -14,8 +14,14 @@ dependencies:
   http: ^0.13.5
   retrofit: ^3.3.1
   
+  #Json
   json_annotation: ^4.7.0
 
+  # Image
+  extended_image: ^6.3.4
+  flutter_svg: ^1.1.6
+  cached_network_image: ^3.2.3
+  shimmer: ^2.0.0
 
 dev_dependencies:
   flutter_test:
