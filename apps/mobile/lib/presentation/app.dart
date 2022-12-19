@@ -8,10 +8,11 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:mobile/di/injection.dart';
 import 'package:mobile/generated/l10n.dart';
 import 'package:mobile/presentation/common/language/cubit/language_cubit.dart';
-import 'package:mobile/presentation/routes.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+
+import 'package:mobile/presentation/routes/routes.dart';
 
 class App extends StatefulWidget {
   const App({super.key});

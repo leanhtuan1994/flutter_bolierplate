@@ -11,6 +11,7 @@ analyzer:
   exclude: 
     - lib/**.g.dart
     - build/**
+    - lib/generated/
 
 linter: 
   rules:

@@ -6,6 +6,11 @@ analyzer:
   errors:
     # allow having TODOs in the code
     todo: ignore
+    
+  exclude: 
+    - lib/**.g.dart
+    - build/**
+    - lib/generated/
 
 linter: 
   rules:
