@@ -5,16 +5,18 @@ import 'package:dio/dio.dart';
 class DioClient {
   static late Dio _dio;
 
-  static FutureOr<Dio> setup() async {
-    final options = BaseOptions();
+  static FutureOr<Dio> setup(
+      {String? baseUrl, List<Interceptor> interceptors = const []}) async {
+    final options = BaseOptions(
+      responseType: ResponseType.json,
+      baseUrl: baseUrl ?? "",
+    );
 
     _dio = Dio(options);
 
-    return _dio;
-  }
+    _dio.interceptors.addAll(interceptors);
 
-  static void addInterceptor(Interceptor interceptor) {
-    _dio.interceptors.add(interceptor);
+    return _dio;
   }
 
   static Dio get dio => _dio;

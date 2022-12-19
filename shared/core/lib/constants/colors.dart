@@ -1,6 +1,8 @@
 part of 'constants.dart';
 
 class AppColors {
+  static const primary = Color(0xFF6B6CFF);
+
   static const neutral100 = Color(0xFF22313F);
   static const neutral80 = Color(0xFF4E5A65);
   static const neutral60 = Color(0xFF7A838C);

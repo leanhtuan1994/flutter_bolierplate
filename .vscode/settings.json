@@ -1,6 +1,10 @@
 {
     "cSpell.words": [
+        "Cupertino",
         "intellij",
+        "prefs",
+        "Subtags",
+        "unawaited",
         "unfocus"
     ],
     "dart.runPubGetOnPubspecChanges": "never"

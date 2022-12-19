@@ -13,6 +13,11 @@ scripts:
     description: 'generate intl utils for mobile packages'
     run: cd apps/mobile && fvm flutter pub run intl_utils:generate
 
+  build:runner: 
+    name: app_build_runner
+    description: 'app build runner'
+    run: cd apps/mobile && fvm flutter pub run build_runner build --delete-conflicting-outputs
+
   pod:install:
     name: app_intl
     description: 'pod install'
