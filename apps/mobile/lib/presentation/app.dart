@@ -1,5 +1,6 @@
 import 'package:core/constants/constants.dart';
 import 'package:core/generated/l10n.dart';
+import 'package:core/theme/theme.dart';
 import 'package:core/widgets/load_more_widget.dart';
 import 'package:core/widgets/loader_overlay/loader_overlay_widget.dart';
 import 'package:flutter/cupertino.dart';
@@ -66,10 +67,13 @@ class _AppState extends State<App> {
               enableLoadingWhenFailed: true,
               hideFooterWhenNotFull: false,
               enableBallisticLoad: true,
-              child: MaterialApp.router(
-                routerConfig: router,
+              child: MaterialApp(
                 debugShowCheckedModeBanner: false,
                 locale: Locale.fromSubtags(languageCode: state.language),
+                supportedLocales: S.delegate.supportedLocales,
+                navigatorKey: rootNavigatorKey,
+                onGenerateRoute: Routes.generateRoute,
+                initialRoute: Routes.root,
                 localizationsDelegates: const [
                   S.delegate,
                   SCore.delegate,
@@ -77,6 +81,7 @@ class _AppState extends State<App> {
                   GlobalCupertinoLocalizations.delegate,
                   DefaultCupertinoLocalizations.delegate,
                 ],
+                theme: theme,
               ),
             ),
           );

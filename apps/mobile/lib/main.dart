@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mobile/di/injection.dart';
 import 'package:mobile/presentation/app.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,6 +28,10 @@ void main() async {
         statusBarColor: Colors.transparent,
       ),
     );
+  } else {
+    //! remove the leading hash (#) from URL
+    //! Only for Web
+    setPathUrlStrategy();
   }
 
   await DependencyInjection.inject();

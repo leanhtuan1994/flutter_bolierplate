@@ -35,7 +35,6 @@ dev_dependencies:
   json_serializable: ^6.5.4
 
 
-
 flutter:
 
   uses-material-design: true
@@ -44,6 +43,15 @@ flutter:
     - assets/icons/
     - assets/images/
     - assets/jsons/
+
+  fonts:
+    - family: SVN Circular
+      fonts:
+        - asset: assets/fonts/SVN-Circular-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/SVN-Circular-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/SVN-Circular-Regular.ttf
 
 
 flutter_intl:

@@ -1,5 +1,4 @@
 import 'package:core/constants/constants.dart';
-import 'package:core/extensions/extensions.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -13,7 +12,7 @@ class ButtonContainer extends StatelessWidget {
     this.width,
     this.onPress,
     this.isLoading = false,
-    this.color,
+    this.color = AppColors.primary,
     this.disable = false,
     this.disableColor = AppColors.neutral10,
     this.tag = "buttonContainer",
@@ -39,8 +38,7 @@ class ButtonContainer extends StatelessWidget {
       width: width,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color:
-              disable ? disableColor : (color ?? context.colorScheme.primary),
+          color: disable ? disableColor : color,
           borderRadius: borderRadius ?? BorderRadius.circular(12),
         ),
         child: ElevatedButton(
