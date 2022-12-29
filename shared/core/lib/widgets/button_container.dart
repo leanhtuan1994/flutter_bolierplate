@@ -72,4 +72,82 @@ class ButtonContainer extends StatelessWidget {
       ),
     );
   }
+
+  static ButtonContainer primary({
+    Key? key,
+    required String title,
+    TextStyle? titleStyle,
+    VoidCallback? onPress,
+    Widget? icon,
+    double? height,
+    double? width,
+    bool isLoading = false,
+    Color? color = AppColors.primary500,
+    bool disable = false,
+    Color? disableColor,
+    String tag = "button-container-primary",
+    BorderRadiusGeometry? borderRadius,
+  }) {
+    return ButtonContainer(
+      key: key,
+      onPress: onPress,
+      height: height,
+      width: width,
+      isLoading: isLoading,
+      color: color,
+      disable: disable,
+      disableColor: disableColor,
+      tag: tag,
+      borderRadius: borderRadius ?? BorderRadius.circular(48),
+      child: Text(
+        title,
+        style: titleStyle ??
+            const TextStyle(
+              fontFamily: AppConstants.defaultFont,
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
+              color: Colors.white,
+            ),
+      ),
+    );
+  }
+
+  static ButtonContainer secondary({
+    Key? key,
+    required String title,
+    TextStyle? titleStyle,
+    VoidCallback? onPress,
+    Widget? icon,
+    double? height,
+    double? width,
+    bool isLoading = false,
+    Color? color = AppColors.neutral10,
+    bool disable = false,
+    Color? disableColor,
+    String tag = "button-container-secondary",
+    BorderRadiusGeometry? borderRadius,
+  }) {
+    return ButtonContainer(
+      key: key,
+      onPress: onPress,
+      height: height,
+      width: width,
+      isLoading: isLoading,
+      color: color,
+      disable: disable,
+      disableColor: disableColor,
+      tag: tag,
+      borderRadius: borderRadius ?? BorderRadius.circular(48),
+      child: Text(
+        title,
+        style: titleStyle ??
+            const TextStyle(
+              color: AppColors.neutral80,
+              fontWeight: FontWeight.w500,
+              fontSize: 14,
+              fontFamily: AppConstants.defaultFont,
+            ),
+      ),
+    );
+  }
 }
