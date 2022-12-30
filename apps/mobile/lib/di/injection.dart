@@ -5,6 +5,7 @@ import 'package:mobile/data/datasources/local/data_manager.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:mobile/data/datasources/remote/app_api/app_api.dart';
 import 'package:mobile/data/repositories/app_repository/app_repository.dart';
+import 'package:mobile/env/env.dart';
 import 'package:mobile/presentation/common/language/cubit/language_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

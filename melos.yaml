@@ -19,12 +19,12 @@ scripts:
     run: cd apps/mobile && fvm flutter pub run build_runner build --delete-conflicting-outputs
 
   pod:install:
-    name: app_intl
+    name: pod_install_app
     description: 'pod install'
     run: cd apps/mobile/ios && pod install
 
   core:intl:generate:
-    name: app_intl
+    name: core_intl
     description: 'generate intl utils for core package'
     run: cd shared/core && fvm flutter pub run intl_utils:generate
 
@@ -33,6 +33,22 @@ scripts:
     description: 'run app pub get only'
     run: cd apps/mobile && fvm flutter pub get
 
+  image:gen:
+    name: gen_image
+    description: 'generate assets class'
+    run: bash scripts/image_gen.sh
+  
+
+  pre:env:
+    name: prepare_env
+    description: 'prepare env'
+    run: bash scripts/prepare_env.sh
+    
+      
+  
+
+
+  
 
 ide:
   intellij:

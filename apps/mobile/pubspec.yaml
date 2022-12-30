@@ -22,6 +22,8 @@ dependencies:
   intl: ^0.17.0
   intl_utils: ^2.8.1
 
+
+  envied: ^0.3.0
   
 
 dev_dependencies:
@@ -33,7 +35,7 @@ dev_dependencies:
   retrofit_generator: ^4.2.0
   build_runner: ^2.3.2
   json_serializable: ^6.5.4
-
+  envied_generator: ^0.3.0
 
 flutter:
 

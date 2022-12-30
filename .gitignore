@@ -73,3 +73,9 @@ output-metadata.json
 
 
 ios/fastlane/report.xml
+
+
+
+*.env
+env.g.dart
+local

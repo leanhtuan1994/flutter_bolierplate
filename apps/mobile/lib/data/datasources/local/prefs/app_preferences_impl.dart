@@ -9,7 +9,7 @@ class AppPreferencesImpl extends AppPreferences {
 
   @override
   String getLanguage() {
-    return sharedPreferences.getString(AppPreferences.keyLanguage) ?? 'en';
+    return sharedPreferences.getString(AppPreferences.keyLanguage) ?? Env.lang;
   }
 
   @override
