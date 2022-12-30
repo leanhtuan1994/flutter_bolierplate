@@ -8,7 +8,7 @@ final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey();
 abstract class Args {
   final bool slide;
 
-  const Args(this.slide);
+  const Args({this.slide = false});
 }
 
 class Routes {
@@ -43,11 +43,9 @@ class Routes {
 
     if (args is Args && args.slide) {
       final slideBuilder = _getPage(settings)[settings.name];
-      if (slideBuilder == null) {
-        return _undefinePage(settings);
+      if (slideBuilder != null) {
+        return SlideTransitionRoute(builder: slideBuilder, settings: settings);
       }
-
-      return SlideTransitionRoute(builder: slideBuilder, settings: settings);
     }
 
     final builder = _getMaterialPage(settings)[settings.name];
