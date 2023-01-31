@@ -1,7 +1,7 @@
 import 'package:core/widgets/errors/page_not_found_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile/presentation/features/home/home_screen.dart';
-import 'package:mobile/presentation/features/profile/profile_screen.dart';
+import '../features/home/home_screen.dart';
+import '../features/profile/profile_screen.dart';
 
 final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey();
 

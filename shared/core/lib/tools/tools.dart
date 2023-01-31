@@ -1,6 +1,7 @@
-import 'package:core/widgets/skeleton/skeleton_widget.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
+
+import '../widgets/skeleton/skeleton_widget.dart';
 
 class Tools {
   static Widget image({

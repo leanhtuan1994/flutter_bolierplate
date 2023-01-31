@@ -1,8 +1,9 @@
-import 'package:core/constants/constants.dart';
-import 'package:core/core.dart';
-import 'package:core/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+
+import '../constants/constants.dart';
+import '../extensions/extensions.dart';
+import '../generated/l10n.dart';
 
 class LoadMoreFooter extends StatelessWidget {
   const LoadMoreFooter({Key? key, this.status}) : super(key: key);

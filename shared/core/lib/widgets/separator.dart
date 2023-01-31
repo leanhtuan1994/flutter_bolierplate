@@ -1,5 +1,6 @@
-import 'package:core/core.dart';
 import 'package:flutter/material.dart';
+
+import '../extensions/extensions.dart';
 
 class Separator extends StatelessWidget {
   const Separator({Key? key}) : super(key: key);

@@ -1,13 +1,13 @@
 // ignore_for_file: constant_identifier_names
 
-import 'package:core/core.dart';
-import 'package:core/widgets/separator.dart';
 import 'package:diacritic/diacritic.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:core/extensions/extensions.dart';
+
+import '../../extensions/extensions.dart';
+import '../separator.dart';
 
 const double ITEM_HEIGHT = 80;
 const double MIN_HEADER_HEIGHT = 30;

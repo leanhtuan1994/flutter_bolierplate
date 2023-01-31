@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 
 import 'package:equatable/equatable.dart';
-import 'package:mobile/data/datasources/local/data_manager.dart';
+import '../../../../data/datasources/local/data_manager.dart';
 part 'language_state.dart';
 
 class LanguageCubit extends Cubit<LanguageState> {

@@ -1,7 +1,8 @@
-import 'package:core/constants/constants.dart';
-import 'package:core/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import '../../constants/constants.dart';
+import '../../extensions/extensions.dart';
 
 class BaseBottomSheet<T> extends StatefulWidget {
   const BaseBottomSheet({

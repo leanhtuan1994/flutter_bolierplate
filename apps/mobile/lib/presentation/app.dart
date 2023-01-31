@@ -5,15 +5,15 @@ import 'package:core/widgets/load_more_widget.dart';
 import 'package:core/widgets/loader_overlay/loader_overlay_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:mobile/di/injection.dart';
-import 'package:mobile/generated/l10n.dart';
-import 'package:mobile/presentation/common/language/cubit/language_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-import 'package:mobile/presentation/routes/routes.dart';
+import '../di/injection.dart';
+import '../generated/l10n.dart';
+import 'common/language/cubit/language_cubit.dart';
+import 'routes/routes.dart';
 
 class App extends StatefulWidget {
   const App({super.key});

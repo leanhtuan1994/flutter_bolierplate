@@ -1,5 +1,6 @@
-import 'package:core/constants/constants.dart';
 import 'package:flutter/material.dart';
+
+import '../constants/constants.dart';
 
 TextTheme buildTextTheme(TextTheme newBase) {
   return newBase

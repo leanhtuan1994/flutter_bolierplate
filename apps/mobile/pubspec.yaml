@@ -17,15 +17,12 @@ dependencies:
     sdk: flutter
 
   core:
-    path: ../../shared/core
 
   intl: ^0.17.0
   intl_utils: ^2.8.1
 
-
   envied: ^0.3.0
   
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
