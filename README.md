@@ -32,28 +32,55 @@ melos run build:runner
 
 # 👨‍🦯 Working flow
 
-### Assets
-- Add your assets at `assets/images` or `assets/icons` 
-- Run cmd to generate define image path 
+## Assets
+
+- Add your assets at `assets/images` or `assets/icons`
+- Run cmd to generate define image path
+
 ```base
 base image_gen.sh 
 ```
+
 - Using by import from common/constants/images.dart
 
-### Generate JSON to DART class 
+## Generate JSON to DART class
+
 - Using [Json To Dart Extension](https://marketplace.visualstudio.com/items?itemName=hirantha.json-to-dart)
 - To customize your classes is very easy. If you want fast to create a simple class then just click enter continue to skip all methods. Otherwise, build your own. To generate Freezed class and Json Serializable choose Code Generation. Of course, you can set up your configuration in the Settings/Extensions/JSON To Dart Model
-- Step: 
-    - Copy your json to clipboard
-    - `Cmd + Shift + P` => Select `JSON to Dart: From Clipboard to Code Generation Class`
-    - Select folder wanna save model 
+- Step:
+  - Copy your json to clipboard
+  - `Cmd + Shift + P` => Select `JSON to Dart: From Clipboard to Code Generation Class`
+  - Select folder wanna save model
 
-### REST API using [Retrofit](https://pub.dev/packages/retrofit)
+## REST API using [Retrofit](https://pub.dev/packages/retrofit)
 
 - Create Class @RestApi at `data/remote/***`
 - Define method
-- Generate `flutter pub run build_runner build --delete-conflicting-outputs` 
+- Generate `flutter pub run build_runner build --delete-conflicting-outputs`
 
+# 🚀  Release to QC and Publish store process
+
+Build App using [Fastlane](https://fastlane.tools/) and upload to [AppCenter](https://appcenter.ms) for test.
+
+Please install [Fastlane](https://fastlane.tools/) & [AppCenter CLI](https://learn.microsoft.com/vi-vn/appcenter/cli/) before using build command.
+
+Build Android & Upload AppCenter run:
+
+```base
+melos run build:android <env>
+```
+
+Build iOS & Upload AppCenter run:
+
+```base
+melos run build:ios <env>
+```
+
+env args follow:
+
+- dev
+- uat
+- prod
 
 # 📌  Git commit naming convention syntax
 
