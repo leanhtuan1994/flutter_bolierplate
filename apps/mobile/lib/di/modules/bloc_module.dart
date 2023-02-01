@@ -9,5 +9,9 @@ class BlocModule extends DIModule {
         dataManager: getIt.get<DataManager>(),
       ),
     );
+
+    getIt.registerSingleton<UserBloc>(
+      UserBloc(),
+    );
   }
 }

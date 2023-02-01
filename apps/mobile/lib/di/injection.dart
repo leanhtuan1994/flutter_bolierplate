@@ -9,6 +9,7 @@ import '../data/datasources/remote/app_api/app_api.dart';
 import '../data/repositories/app_repository/app_repository.dart';
 import '../env/env.dart';
 import '../presentation/common/language/cubit/language_cubit.dart';
+import '../presentation/common/user/bloc/user_bloc.dart';
 
 part 'modules/api_module.dart';
 part 'modules/bloc_module.dart';

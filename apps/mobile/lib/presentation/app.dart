@@ -10,9 +10,12 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
+import '../data/datasources/local/data_manager.dart';
 import '../di/injection.dart';
 import '../generated/l10n.dart';
 import 'common/language/cubit/language_cubit.dart';
+import 'common/user/bloc/user_bloc.dart';
+import 'common/user/user_delegate.dart';
 import 'routes/routes.dart';
 
 class App extends StatefulWidget {
@@ -22,7 +25,10 @@ class App extends StatefulWidget {
   State<App> createState() => _AppState();
 }
 
-class _AppState extends State<App> {
+class _AppState extends State<App> with UserDelegate {
+  UserBloc get _userBloc => getIt.get<UserBloc>();
+  DataManager get _dataManager => getIt.get<DataManager>();
+
   @override
   void initState() {
     _preCacheImages();
@@ -31,10 +37,23 @@ class _AppState extends State<App> {
     super.initState();
   }
 
+  @override
+  void onLoggedIn() {
+    // TODO: implement onLoggedIn
+  }
+
+  @override
+  void onLogout() {
+    // TODO: implement onLogout
+  }
+
   List<BlocProvider> get providers => [
         BlocProvider<LanguageCubit>(
           create: (_) => getIt.get<LanguageCubit>(),
         ),
+        BlocProvider<UserBloc>(
+          create: (_) => _userBloc,
+        )
       ];
 
   @override
@@ -96,5 +115,17 @@ class _AppState extends State<App> {
 
   void _initModules() {
     //! init modules
+
+    if (_dataManager.isFirstOpenApp()) {
+      _dataManager.clearAll();
+      _dataManager.saveFirstOpenApp();
+    }
+
+    Future.delayed(
+      Duration.zero,
+      () {
+        _userBloc.delegate;
+      },
+    );
   }
 }
