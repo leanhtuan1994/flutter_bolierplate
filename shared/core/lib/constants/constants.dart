@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:flutter/foundation.dart';
+import 'package:logger/logger.dart';
 
 part 'general.dart';
 part 'colors.dart';

@@ -124,7 +124,7 @@ class _AppState extends State<App> with UserDelegate {
     Future.delayed(
       Duration.zero,
       () {
-        _userBloc.delegate;
+        _userBloc.delegate = this;
       },
     );
   }

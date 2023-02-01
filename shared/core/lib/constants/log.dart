@@ -2,7 +2,10 @@ part of 'constants.dart';
 
 const kLogTag = '[App]';
 
-void printLog(dynamic data) {
+var logger = Logger();
+
+void printLog(dynamic data, [dynamic error, StackTrace? stackTrace]) {
   final now = DateTime.now().toString().split(' ').last;
-  debugPrint('[$now]$kLogTag${data.toString()}');
+
+  logger.d('[$now] ${data.toString()}', error, stackTrace);
 }
