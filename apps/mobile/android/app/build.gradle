@@ -11,23 +11,25 @@ if (flutterRoot == null) {
     throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
 }
 
-def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
-if (flutterVersionCode == null) {
-    flutterVersionCode = '1'
+def envProperties = new Properties()
+def envPropertiesFile = rootProject.file('env.properties')
+if (envPropertiesFile.exists()) {
+    envProperties.load(new FileInputStream(envPropertiesFile))
 }
 
-def flutterVersionName = localProperties.getProperty('flutter.versionName')
-if (flutterVersionName == null) {
-    flutterVersionName = '1.0'
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('key.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 }
+
 
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    compileSdkVersion flutter.compileSdkVersion
-    ndkVersion flutter.ndkVersion
+    compileSdkVersion 33
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -43,21 +45,62 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.app.mobile"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-build-configuration.
-        minSdkVersion flutter.minSdkVersion
-        targetSdkVersion flutter.targetSdkVersion
-        versionCode flutterVersionCode.toInteger()
-        versionName flutterVersionName
+        applicationId envProperties.getProperty("app.id")
+        minSdkVersion 21
+        targetSdkVersion 33
+        versionCode envProperties.getProperty("app.code", "999").toInteger()
+        versionName envProperties.getProperty("app.name", "1.0")  
+        resConfigs "en"
+    }
+
+
+    signingConfigs {
+        release { 
+            if (System.getenv()["CI"]) { // CI=true is exported by Codemagic
+               storeFile file(System.getenv()["FCI_BUILD_DIR"])
+               storePassword System.getenv()["ANDROID_STORE_PASSWORD"]
+               keyAlias System.getenv()["ANDROID_KEY_ALIAS"]
+               keyPassword System.getenv()["ANDROID_KEY_PASSWORD"]
+           } else {
+               keyAlias keystoreProperties['keyAlias']
+               keyPassword keystoreProperties['keyPassword']
+               storeFile file(keystoreProperties['storeFile'])
+               storePassword keystoreProperties['storePassword']
+           }
+
+        }
     }
 
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
+            signingConfig signingConfigs.release
+
+            manifestPlaceholders = [ 
+                appName: envProperties.getProperty("name", "Mobile"),
+            ]
+
+            // Enables code shrinking, obfuscation, and optimization for only
+            // your project's release build type.
+            minifyEnabled true
+
+//             Enables resource shrinking, which is performed by the
+//             Android Gradle plugin.
+            shrinkResources true
+
+//             Includes the default ProGuard rules files that are packaged with
+//             the Android Gradle plugin. To learn more, go to the section about
+//             R8 configuration files.
+            proguardFiles getDefaultProguardFile(
+                    'proguard-android-optimize.txt'),
+                    'proguard-rules.pro'
+
+        }
+
+        debug { 
             signingConfig signingConfigs.debug
+            manifestPlaceholders = [ 
+                appName: envProperties.getProperty("name", "Mobile"),
+            ]
         }
     }
 }
@@ -69,3 +112,15 @@ flutter {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
+
+//subprojects {
+//    project.buildDir = "${rootProject.buildDir}/${project.name}"
+//    project.evaluationDependsOn(':app')
+//    afterEvaluate {project ->
+//        if (project.hasProperty("android") && project.property("android").compileSdkVersion == "android-R") {
+//            android {
+//                compileSdkVersion 33
+//            }
+//        }
+//    }
+//}

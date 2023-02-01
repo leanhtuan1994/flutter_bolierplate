@@ -38,7 +38,7 @@ melos run build:runner
 - Run cmd to generate define image path
 
 ```base
-base image_gen.sh 
+melos run image:gen
 ```
 
 - Using by import from common/constants/images.dart
