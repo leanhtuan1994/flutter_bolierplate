@@ -1,32 +1,26 @@
 import 'package:core/widgets/errors/page_not_found_widget.dart';
 import 'package:flutter/material.dart';
 import '../features/home/home_screen.dart';
-import '../features/profile/profile_screen.dart';
+import '../init.dart';
 
 final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey();
 
-abstract class Args {
-  final bool slide;
-
-  const Args({this.slide = false});
-}
-
 class Routes {
   static const String root = '/';
-  static const String profile = '/profile';
+  static const String home = '/home';
 
   static Map<String, WidgetBuilder?> _getMaterialPage(RouteSettings settings) =>
       {
         root: (context) {
-          return const HomeScreen();
+          return const AppInit();
         },
-        profile: (context) {
-          return const ProfileScreen();
+        home: (context) {
+          return const HomeScreen();
         }
       };
 
   static Map<String, RoutePageBuilder?> _getPage(RouteSettings settings) => {
-        root: (context, animation, secondaryAnimation) => const ProfileScreen(),
+        // root: (context, animation, secondaryAnimation) => Container(),
       };
 
   static MaterialPageRoute _undefinePage(RouteSettings settings) {
@@ -39,13 +33,10 @@ class Routes {
   }
 
   static Route generateRoute(RouteSettings settings) {
-    final args = settings.arguments;
+    final slideBuilder = _getPage(settings)[settings.name];
 
-    if (args is Args && args.slide) {
-      final slideBuilder = _getPage(settings)[settings.name];
-      if (slideBuilder != null) {
-        return SlideTransitionRoute(builder: slideBuilder, settings: settings);
-      }
+    if (slideBuilder != null) {
+      return SlideTransitionRoute(builder: slideBuilder, settings: settings);
     }
 
     final builder = _getMaterialPage(settings)[settings.name];
@@ -56,6 +47,7 @@ class Routes {
         settings: settings,
       );
     }
+
     return _undefinePage(settings);
   }
 }
