@@ -11,7 +11,7 @@ workflows:
           flutter pub global activate melos
       - name: melos bootstrap 
         script: |
-          flutter pub global melos run bs
+          flutter pub global melos bs
       - name: melos run build 
         script: |
           flutter pub global melos run app:android:release
