@@ -1,0 +1,20 @@
+workflows:
+  android-workflow-dev:
+    name: Android Workflow Dev
+    environment: 
+      android_signing:
+        - keystore_reference
+      flutter: 3.3.10
+    scripts:
+      - name: active melos 
+        script: |
+          flutter pub global activate melos
+      - name: melos bootstrap 
+        script: |
+          flutter pub global run melos bs
+      - name: melos run build 
+        script: |
+          flutter pub global run melos build:android dev
+    artifacts:
+      - apps/mobile/build/app/outputs/apk/*.apk
+

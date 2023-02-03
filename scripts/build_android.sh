@@ -16,9 +16,13 @@ echo ===============================
 echo ==========APPLY ENV============
 echo ===============================
 
-cd apps/mobile/android && ./gradlew clean && cd ....
+cd apps/mobile/android && ./gradlew clean
+cd ..
+cd ..
+cd ..
 
-bash scripts/prepare-env.sh "$ENV_ARG"
+bash scripts/prepare_env.sh "$ENV_ARG"
+
 
 echo "${GREEN}"
 echo  
