@@ -76,6 +76,6 @@ ios/fastlane/report.xml
 
 
 
-*.env
-env.g.dart
-local
+# # /*.env
+# env.g.dart
+# # /local

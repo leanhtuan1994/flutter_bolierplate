@@ -4,21 +4,20 @@ workflows:
     environment: 
       android_signing:
         - keystore_reference
-      flutter: 3.3.10
     scripts:
-      - name: active fvm
+      - name: Activate FVM 
         script: dart pub global activate fvm
-      - name: fvm install
+      - name: Install current FVM version
         script: fvm install
-      - name: active melos 
+      - name: Activate Melos CLI 
         script: |
           flutter pub global activate melos
-      - name: melos bootstrap 
+      - name: Melos bootstrap all packages 
         script: |
           flutter pub global run melos bs
-      - name: melos run build 
+      - name: Run build 
         script: |
-          flutter pub global run melos run app:android:release
+          flutter pub global run melos run build:android
     artifacts:
       - apps/mobile/build/app/outputs/apk/*.apk
 
