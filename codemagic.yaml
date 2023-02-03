@@ -6,6 +6,8 @@ workflows:
         - keystore_reference
       flutter: 3.3.10
     scripts:
+      - name: active fvm
+        script: dart pub global activate fvm
       - name: active melos 
         script: |
           flutter pub global activate melos
