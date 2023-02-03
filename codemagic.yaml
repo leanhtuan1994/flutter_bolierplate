@@ -22,5 +22,5 @@ workflows:
         script: |
           flutter pub global run melos run app:android:release
     artifacts:
-      - apps/mobile/build/app/outputs/apk/*.apk
+      - apps/mobile/build/**/outputs/**/*.apk
 
