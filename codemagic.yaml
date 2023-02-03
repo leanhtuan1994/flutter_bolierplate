@@ -15,9 +15,12 @@ workflows:
       - name: Melos bootstrap all packages 
         script: |
           flutter pub global run melos bs
+      - name: Apply ENV
+        script: |
+         flutter pub global run melos run pre:env dev
       - name: Run build 
         script: |
-          flutter pub global run melos run build:android
+          flutter pub global run melos run app:android:release
     artifacts:
       - apps/mobile/build/app/outputs/apk/*.apk
 
