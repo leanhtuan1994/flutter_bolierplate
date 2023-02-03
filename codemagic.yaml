@@ -8,6 +8,8 @@ workflows:
     scripts:
       - name: active fvm
         script: dart pub global activate fvm
+      - name: fvm install
+        script: fvm install
       - name: active melos 
         script: |
           flutter pub global activate melos
